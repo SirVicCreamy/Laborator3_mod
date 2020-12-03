@@ -115,7 +115,7 @@ public class ManagerCursuri implements OperatiiManagerCursuri{
 	{
 		@Override
 		public int compare(Curs o1, Curs o2) {
-			return (o1.studenti.length-o2.studenti.length);
+			return (o1.studenti.size()-o2.studenti.size());
 		}
 	}
 

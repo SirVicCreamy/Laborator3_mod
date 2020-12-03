@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="Pain">
+    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment=" Sortarile pulii">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Curs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/OperatiiManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/OperatiiManagerCursuri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +21,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedIndex" value="1" />
   </component>
   <component name="ProjectId" id="1kBwnFXUry9MbnBuQPZbiFWE9Vu" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -72,7 +67,7 @@
       <workItem from="1605187460541" duration="5073000" />
       <workItem from="1607014718790" duration="5019000" />
       <workItem from="1607020371225" duration="2629000" />
-      <workItem from="1607023505494" duration="382000" />
+      <workItem from="1607023505494" duration="1557000" />
     </task>
     <task id="LOCAL-00001" summary="Pain">
       <created>1607020756748</created>
@@ -81,14 +76,33 @@
       <option name="project" value="LOCAL" />
       <updated>1607020756748</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary=" Sortarile pulii">
+      <created>1607023930011</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607023930011</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Pain" />
-    <option name="LAST_COMMIT_MESSAGE" value="Pain" />
+    <MESSAGE value=" Sortarile pulii" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Sortarile pulii" />
   </component>
 </project>

@@ -1,12 +1,14 @@
 package laborator3;
 
 import java.util.Arrays;
+import java.util.Set;
+import java.util.HashSet;
 
-public class Curs implements OperatiiCurs{
+public class Curs implements OperatiiCurs {
 	String nume;
 	String descriere;
 	Profesor profu;
-	Student[] studenti;
+	Set<Student> studenti;
 	int[] note;
 
 	public Curs()
@@ -14,7 +16,7 @@ public class Curs implements OperatiiCurs{
 		this.nume="";
 		this.descriere="";
 		this.profu=new Profesor();
-		this.studenti=new Student[0];
+		this.studenti=new HashSet<Student>();
 		this.note=new int[0];
 	}
 
@@ -22,7 +24,7 @@ public class Curs implements OperatiiCurs{
 		this.nume = nume;
 		this.descriere = descriere;
 		this.profu = (Profesor) profu;
-		this.studenti = (Student[]) studenti;
+		this.studenti = new HashSet<Student>(Arrays.asList((Student[])studenti));
 		this.note = new int[studenti.length];
 	}
 
@@ -33,32 +35,11 @@ public class Curs implements OperatiiCurs{
 	public void UpdateCurs(String nume, String desc) {this.nume=nume;  this.descriere=desc;   }
 
 	public void AddStudent(Student student) {
-		//lucrand cu array trebuie inserat folosind un sir auxiliar
-		int noualungime = studenti.length + 1;
-		Student[] aux = new Student[noualungime];
-		int index = 0;
-		for (Student s : studenti) {
-			aux[index++] = s;
-		}
-		//la final adaugam noul student pe ultimul index
-		aux[index] = student;
-		//si realocam lista de studenti cu aux;
-		this.studenti = new Student[noualungime];
-		System.arraycopy(aux, 0, studenti, 0, noualungime);
+		this.studenti.add(student);
 	}
 
 	public void RemoveStudent(Student student) {
-
-		int noualungime = studenti.length - 1;
-		Student[] aux = new Student[noualungime];
-		int index = 0;
-		for (Student s : studenti)
-			if (student != s)
-				aux[index++] = s;
-
-		this.studenti = new Student[noualungime];
-		System.arraycopy(aux, 0, studenti, 0,
-				noualungime);
+		this.studenti.remove(student);
 	}
 
 	public void UpdateStudent(Student student) {
@@ -82,11 +63,11 @@ public class Curs implements OperatiiCurs{
 		return nume;
 	}
 
-	public Student[] getStudenti() {
+	public Set<Student> getStudenti() {
 		return studenti;
 	}
 
-	public void setStudenti(Student[] studenti) {
+	public void setStudenti(Set<Student> studenti) {
 		this.studenti = studenti;
 	}
 
@@ -95,26 +76,28 @@ public class Curs implements OperatiiCurs{
 	}
 
 	public void noteazaStudent(Student studentNotat, int nota) {
-		for ( int i = 0; i < studenti.length; i++) {
-			Student student = studenti[i];
-			if ( student.getNume().equals(studentNotat.getNume()) && student.getPrenume().equals(studentNotat.getPrenume())) {
-				note[i] = nota;
+		int i=0;
+		for(Student student:studenti)
+			if (student.getNume().equals(studentNotat.getNume()) && student.getPrenume().equals(studentNotat.getPrenume())) {
+				note[i++] = nota;
 			}
-		}		
 	}
-	
+
 	public void raportStudentiInscrisi() {
-		for ( int i = 0; i < studenti.length; i++) {
-			System.out.println(studenti[i]);
+		for(Student student:studenti) {
+			System.out.println(student);
 		}
 	}
 
 	public void raportNoteStudenti() {
-		for ( int i = 0; i < studenti.length; i++) {
-			System.out.println(studenti[i] + " are nota " + note[i]);
+		int i=0;
+		for(Student student: studenti) {
+			System.out.println(student+ " are nota " + note[i++]);
 		}
+
 	}
-	
+
+
 	public void raportMediaStudentilor() {
 		int sum = Arrays.stream(note).sum();
 		System.out.println("Media studentilor pentru cursul: " + nume + " este: " + sum/(double)note.length);
@@ -123,10 +106,9 @@ public class Curs implements OperatiiCurs{
 	public Profesor getProfu() {
 		return profu;
 	}
-	
+
 	public boolean isEqual(Curs c) {
 		return c.getNume().equals(nume);
 	}
 
 }
-
