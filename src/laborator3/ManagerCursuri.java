@@ -29,20 +29,23 @@ public class ManagerCursuri implements OperatiiManagerCursuri{
 			}
 
 	@Override
-	public void SortByNume(List<Curs> cursuri) {
-
-
+	public void SortByNume() {
+		ComparaNume compNume = new ComparaNume();
+		Collections.sort(cursuri, compNume);
 	}
 
 	@Override
-	public void SortByNume_Prof(List<Curs> cursuri) {
-
+	public void SortByNume_Prof() {
+		ComparaNume_Prof compNume_Prof = new ComparaNume_Prof();
+		Collections.sort(cursuri, compNume_Prof);
 	}
 
 	@Override
-	public void SortByNr_Studenti(List<Curs> cursuri) {
-
+	public void SortByNr_Studenti() {
+		ComparaNr_Studenti compNr_Studenti = new ComparaNr_Studenti();
+		Collections.sort(cursuri, compNr_Studenti);
 	}
+
 
 	public void UpdateCurs(Curs curs) {
 		for(int i = 0; i < cursuri.size();i++)
@@ -92,8 +95,29 @@ public class ManagerCursuri implements OperatiiManagerCursuri{
 		}		
 	}
 
+	class ComparaNume implements Comparator<Curs>
+	{
+		@Override
+		public int compare(Curs o1, Curs o2) {
+			return(o1.nume.compareTo(o2.nume));
+		}
+	}
 
+	class ComparaNume_Prof implements Comparator<Curs>
+	{
+		@Override
+		public int compare(Curs o1, Curs o2) {
+			return (o1.profu.nume.compareTo(o2.profu.nume));
+		}
+	}
 
+	class ComparaNr_Studenti implements Comparator<Curs>
+	{
+		@Override
+		public int compare(Curs o1, Curs o2) {
+			return (o1.studenti.length-o2.studenti.length);
+		}
+	}
 
 
 

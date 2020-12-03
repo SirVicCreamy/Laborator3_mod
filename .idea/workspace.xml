@@ -2,24 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="Pain">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Laborator3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/description.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/project-template.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Laborator3.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/OperatiiCurs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/OperatiiManagerCursuri.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/Persoana.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/Profesor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/laborator3/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/Curs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/OperatiiManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/OperatiiManagerCursuri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,6 +34,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -83,8 +71,17 @@
       <updated>1605187458750</updated>
       <workItem from="1605187460541" duration="5073000" />
       <workItem from="1607014718790" duration="5019000" />
-      <workItem from="1607020371225" duration="347000" />
+      <workItem from="1607020371225" duration="2629000" />
+      <workItem from="1607023505494" duration="382000" />
     </task>
+    <task id="LOCAL-00001" summary="Pain">
+      <created>1607020756748</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1607020756748</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

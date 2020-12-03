@@ -2,7 +2,7 @@ package laborator3;
 
 import java.util.Arrays;
 
-public class Curs implements OperatiiCurs {
+public class Curs implements OperatiiCurs{
 	String nume;
 	String descriere;
 	Profesor profu;
@@ -127,5 +127,6 @@ public class Curs implements OperatiiCurs {
 	public boolean isEqual(Curs c) {
 		return c.getNume().equals(nume);
 	}
-	
+
 }
+
