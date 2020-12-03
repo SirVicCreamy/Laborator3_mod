@@ -1,14 +1,12 @@
 package laborator3;
 
-import java.util.Arrays;
-import java.util.Set;
-import java.util.HashSet;
+import java.util.*;
 
-public class Curs implements OperatiiCurs {
+public class Curs implements OperatiiCurs  {
 	String nume;
 	String descriere;
 	Profesor profu;
-	Set<Student> studenti;
+	TreeSet<Student> studenti;
 	int[] note;
 
 	public Curs()
@@ -16,7 +14,7 @@ public class Curs implements OperatiiCurs {
 		this.nume="";
 		this.descriere="";
 		this.profu=new Profesor();
-		this.studenti=new HashSet<Student>();
+		this.studenti=new TreeSet<Student>();
 		this.note=new int[0];
 	}
 
@@ -24,7 +22,7 @@ public class Curs implements OperatiiCurs {
 		this.nume = nume;
 		this.descriere = descriere;
 		this.profu = (Profesor) profu;
-		this.studenti = new HashSet<Student>(Arrays.asList((Student[])studenti));
+		this.studenti = new TreeSet<Student>(Arrays.asList((Student[])studenti));
 		this.note = new int[studenti.length];
 	}
 
@@ -67,7 +65,7 @@ public class Curs implements OperatiiCurs {
 		return studenti;
 	}
 
-	public void setStudenti(Set<Student> studenti) {
+	public void setStudenti(TreeSet<Student> studenti) {
 		this.studenti = studenti;
 	}
 
@@ -110,5 +108,8 @@ public class Curs implements OperatiiCurs {
 	public boolean isEqual(Curs c) {
 		return c.getNume().equals(nume);
 	}
+
+
+
 
 }

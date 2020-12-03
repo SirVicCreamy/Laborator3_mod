@@ -1,6 +1,6 @@
 package laborator3;
 
-public class Student extends Persoana {
+public class Student extends Persoana implements Comparable <Student> {
 
 	int grupa;
 
@@ -44,5 +44,10 @@ public class Student extends Persoana {
 
 	public void setGrupa(int grupa) {
 		this.grupa = grupa;
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		return this.grupa-o.grupa;
 	}
 }
