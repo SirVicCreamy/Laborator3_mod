@@ -5,6 +5,6 @@ public abstract class Persoana {
     String prenume;
     @Override
     public String toString() {
-        return "Persoana{" + "nume=" + nume + ", prenume=" + prenume + '}';
+        return  nume + ", "+prenume;
     }
 }

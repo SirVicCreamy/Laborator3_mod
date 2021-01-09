@@ -1,5 +1,6 @@
 package laborator3;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,9 +11,16 @@ import java.util.List;
 
 public class ManagerCursuri implements OperatiiManagerCursuri{
 	List<Curs> cursuri;
-
+	File StudentiFile, ProfesoriFile, CursuriFile;
 	public ManagerCursuri() {
 		cursuri = new ArrayList<Curs>();
+		try {
+			StudentiFile = new File("studenti.csv");
+			ProfesoriFile = new File("profesori.csv");
+			CursuriFile= new File ("cursuri.csv");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 
 
@@ -118,6 +126,30 @@ public class ManagerCursuri implements OperatiiManagerCursuri{
 			return (o1.studenti.size()-o2.studenti.size());
 		}
 	}
+
+	public void ScrieCursuri()
+	{
+		try {
+
+			BufferedWriter bw = new BufferedWriter(new FileWriter(CursuriFile));
+			try {BufferedReader br = new BufferedReader(new FileReader(CursuriFile));
+				String line = br.readLine();
+				if(line==null)
+					bw.write("nume, descriere\r\n"); //se scrie antetul
+				for(Curs c : cursuri)
+				bw.write(c.toString());
+
+				bw.flush();
+			} catch (IOException e) {
+				System.out.println(e);
+			} finally {
+				bw.close();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
+
 
 
 

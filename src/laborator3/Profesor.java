@@ -1,5 +1,7 @@
 package laborator3;
 
+import java.io.*;
+
 public class Profesor extends Persoana{
 
 
@@ -22,7 +24,7 @@ public class Profesor extends Persoana{
 
 	@Override
 	public String toString() {
-		return "Profesor{" + "nume=" + nume + ", prenume=" + prenume + '}';
+		return nume + ", " + prenume;
 	}
 
 	public Profesor()
@@ -39,4 +41,32 @@ public class Profesor extends Persoana{
 	public boolean isEqual(Profesor p) {
 		return p.getNume().equals(nume) && p.getPrenume().equals(prenume);
 	}
+
+	public void ScrieCSV(String filepath)
+	{
+		try {
+			File f = new File(filepath);
+			BufferedWriter bw = new BufferedWriter(new FileWriter(f,true));
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(f));
+				String line = br.readLine();
+				if(line==null)
+					bw.write("nume, prenume\r\n"); //se scrie antetul
+
+				bw.write(this.toString() + "\r\n");
+
+				bw.flush();
+			} catch (IOException e) {
+				System.out.println(e);
+			} finally {
+				bw.close();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
+
+
+
+
 }

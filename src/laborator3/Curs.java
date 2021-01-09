@@ -1,13 +1,15 @@
 package laborator3;
 
+import java.io.*;
 import java.util.*;
 
-public class Curs implements OperatiiCurs  {
+public class Curs extends Thread implements OperatiiCurs {
 	String nume;
 	String descriere;
 	Profesor profu;
 	TreeSet<Student> studenti;
 	int[] note;
+	File StudentiFile, ProfesoriFile;
 
 	public Curs()
 	{
@@ -16,6 +18,13 @@ public class Curs implements OperatiiCurs  {
 		this.profu=new Profesor();
 		this.studenti=new TreeSet<Student>();
 		this.note=new int[0];
+
+		try {
+			StudentiFile = new File("studenti.csv");
+			ProfesoriFile = new File("profesori.csv");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 
 	public Curs(String nume, String descriere, Persoana profu, Persoana[] studenti) {
@@ -24,16 +33,94 @@ public class Curs implements OperatiiCurs  {
 		this.profu = (Profesor) profu;
 		this.studenti = new TreeSet<Student>(Arrays.asList((Student[])studenti));
 		this.note = new int[studenti.length];
+
+		try {
+			StudentiFile = new File("studenti.csv");
+			ProfesoriFile = new File("profesori.csv");
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
 	}
 
 	public void UpdateProfesor(Profesor profu) {
 		this.profu = profu;
+		profu.ScrieCSV(ProfesoriFile.toString());
 	}
 
 	public void UpdateCurs(String nume, String desc) {this.nume=nume;  this.descriere=desc;   }
 
+
+
+
+	public void ScrieStudenti() {
+		try {
+
+			BufferedWriter bw = new BufferedWriter(new FileWriter(StudentiFile));
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(StudentiFile));
+				String line = br.readLine();
+				if(line==null)
+					bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
+
+				for(Student s : this.studenti)
+					bw.write(s.toString() + "\r\n");
+				bw.flush();
+			} catch (IOException e) {
+				System.out.println(e);
+			} finally {
+				bw.close();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
+
+	public void ScrieProf() {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ProfesoriFile));
+			try {
+				BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
+				String line = br.readLine();
+				if(line==null)
+					bw.write("nume, prenume,\r\n"); //se scrie antetul
+
+				bw.write(this.profu.toString());
+				bw.flush();
+			} catch (IOException e) {
+				System.out.println(e);
+			} finally {
+				bw.close();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
+
+
+	public void CitesteCSVStudenti(String filepath) {
+		try {
+			File f = new File(filepath);
+			BufferedReader br = new BufferedReader(new FileReader(f));
+			String line = br.readLine();
+			//ignor prima linie (antetul)
+			if (line != null) {
+				line = br.readLine();
+			}
+			while (line != null) {
+				String[] splituri = line.split(",");
+
+				Student s = new Student(splituri[0], splituri[1].trim(), Integer.parseInt(splituri[2].trim()));
+				studenti.add(s);
+				line = br.readLine();
+			}
+		} catch (Exception ex) {
+			System.out.println(ex);
+		}
+	}
+
 	public void AddStudent(Student student) {
 		this.studenti.add(student);
+		student.ScrieCSV(StudentiFile.toString());
 	}
 
 	public void RemoveStudent(Student student) {
@@ -50,10 +137,10 @@ public class Curs implements OperatiiCurs  {
 
 	@Override
 	public String toString() {
-		String str = "Curs: " + "nume=" + nume + ", descriere=" + descriere + ",\nprofu=" + profu + ",\nstudenti:\n";
-		for (Student s : studenti) {
+		String str = nume+", "+descriere+"\n";
+		/*for (Student s : studenti) {
 			str += s + "\n";
-		}
+		}*/
 		return str;
 	}
 
