@@ -84,7 +84,7 @@ public class Curs extends Thread implements OperatiiCurs {
 				if(line==null)
 					bw.write("nume, prenume,\r\n"); //se scrie antetul
 
-				bw.write(this.profu.toString());
+				bw.write(this.profu.toString()+"\r\n");
 				bw.flush();
 			} catch (IOException e) {
 				System.out.println(e);
