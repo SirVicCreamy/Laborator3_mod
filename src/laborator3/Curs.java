@@ -55,7 +55,7 @@ public class Curs extends Thread implements OperatiiCurs {
 	public void ScrieStudenti() {
 		try {
 
-			BufferedWriter bw = new BufferedWriter(new FileWriter(StudentiFile));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(StudentiFile,true));
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(StudentiFile));
 				String line = br.readLine();
@@ -77,7 +77,7 @@ public class Curs extends Thread implements OperatiiCurs {
 
 	public void ScrieProf() {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(ProfesoriFile));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(ProfesoriFile,true));
 			try {
 				BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
 				String line = br.readLine();

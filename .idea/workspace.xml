@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="Sort grupe">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="csv stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Curs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/OperatiiCurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/OperatiiCurs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Persoana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Persoana.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Profesor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Profesor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,6 +91,7 @@
       <workItem from="1609702313461" duration="1050000" />
       <workItem from="1610131796947" duration="14217000" />
       <workItem from="1610147850603" duration="19173000" />
+      <workItem from="1610218051094" duration="230000" />
     </task>
     <task id="LOCAL-00001" summary="Pain">
       <created>1607020756748</created>
@@ -127,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607037472881</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="csv stuff">
+      <created>1610218145620</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610218145621</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,7 +151,8 @@
     <MESSAGE value=" Sortarile pulii" />
     <MESSAGE value="Setu pulii" />
     <MESSAGE value="Sort grupe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sort grupe" />
+    <MESSAGE value="csv stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="csv stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
