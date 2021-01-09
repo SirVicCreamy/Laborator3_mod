@@ -163,8 +163,10 @@ public class Curs extends Thread implements OperatiiCurs {
 	public void noteazaStudent(Student studentNotat, int nota) {
 		int i=0;
 		for(Student student:studenti)
-			if (student.getNume().equals(studentNotat.getNume()) && student.getPrenume().equals(studentNotat.getPrenume())) {
-				note[i++] = nota;
+		{
+			if (student.getNume().equals(studentNotat.getNume()) && student.getPrenume().equals(studentNotat.getPrenume()))
+				note[i] = nota;
+				i++;
 			}
 	}
 
@@ -184,8 +186,30 @@ public class Curs extends Thread implements OperatiiCurs {
 
 
 	public void raportMediaStudentilor() {
-		int sum = Arrays.stream(note).sum();
-		System.out.println("Media studentilor pentru cursul: " + nume + " este: " + sum/(double)note.length);
+
+
+
+		Thread medie1 = new Thread () {
+			public void run () {
+
+					int sum1 = 0;
+					for (int i = 0; i < studenti.size() / 2; i++)
+						sum1 += note[i];
+				try {System.out.println("Media primei jumatati de studenti pentru cursul: " + nume + " este: " + 2 * sum1 / (double) studenti.size());}
+				catch(Exception e) { System.out.println(e);}
+				}
+		};
+		Thread medie2 = new Thread () {
+			public void run () {
+				int sum2=0;
+				for(int i= studenti.size()/2;i<studenti.size();i++)
+					sum2+=note[i];
+				try{System.out.println("Media din a doua jumatate de studenti pentru cursul: " + nume + " este: " + 2*sum2/(double)studenti.size());}
+				catch(Exception e) { System.out.println(e);}
+			}
+		};
+		medie1.start();
+		medie2.start();
 	}
 
 	public Profesor getProfu() {

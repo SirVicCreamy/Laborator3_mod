@@ -11,6 +11,7 @@ public class Student extends Persoana implements Comparable <Student> {
 		this.nume="";
 		this.prenume="";
 		this.grupa=0;
+
 	}
 
 	public Student(String nume, String prenume, int grupa) {
