@@ -48,6 +48,7 @@
           </grid>
         </constraints>
         <properties>
+          <doubleBuffered value="false"/>
           <name value=""/>
         </properties>
         <border type="none"/>
@@ -108,7 +109,8 @@
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Update"/>
+          <label value="Update(Save)"/>
+          <text value="Update(Save)"/>
         </properties>
       </component>
       <component id="a7d31" class="javax.swing.JButton" binding="addButton" default-binding="true">

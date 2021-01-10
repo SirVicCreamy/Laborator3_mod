@@ -43,6 +43,18 @@ public class Curs extends Thread implements OperatiiCurs {
         }
     }
 
+    public Curs(String nume, String descriere) {
+        this.nume = nume;
+        this.descriere = descriere;
+
+        try {
+            StudentiFile = new File("studenti.csv");
+            ProfesoriFile = new File("profesori.csv");
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
     public void UpdateProfesor(Profesor profu) {
         this.profu = profu;
         profu.ScrieCSV(ProfesoriFile.toString());
@@ -100,26 +112,6 @@ public class Curs extends Thread implements OperatiiCurs {
     }
 
 
-    public void CitesteCSVStudenti(String filepath) {
-        try {
-            File f = new File(filepath);
-            BufferedReader br = new BufferedReader(new FileReader(f));
-            String line = br.readLine();
-            //ignor prima linie (antetul)
-            if (line != null) {
-                line = br.readLine();
-            }
-            while (line != null) {
-                String[] splituri = line.split(",");
-
-                Student s = new Student(splituri[0], splituri[1].trim(), Integer.parseInt(splituri[2].trim()));
-                studenti.add(s);
-                line = br.readLine();
-            }
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-    }
 
     public void AddStudent(Student student) {
         this.studenti.add(student);

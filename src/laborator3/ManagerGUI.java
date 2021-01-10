@@ -4,9 +4,7 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 
 public class ManagerGUI {
 
@@ -30,6 +28,11 @@ public class ManagerGUI {
     public ManagerGUI() {
 
         final int[] index = {0};
+        DefaultTableModel modelCursuri = (DefaultTableModel) tabelCursuri.getModel();
+        DefaultTableModel modelStudenti = (DefaultTableModel) tabelStudenti.getModel();
+        DefaultTableModel modelProfi = (DefaultTableModel) tabelProfi.getModel();
+
+
         cursuriButton.addActionListener(new ActionListener() {
 
 
@@ -43,13 +46,15 @@ public class ManagerGUI {
                     String firstLine = br.readLine();
                     if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
-                        DefaultTableModel model = (DefaultTableModel) tabelCursuri.getModel();
-                        model.setColumnIdentifiers(columnsName);
+
+                        modelCursuri.setColumnIdentifiers(columnsName);
                         Object[] lines = br.lines().toArray();
+
+                       modelCursuri.setRowCount(0);
 
                         for (int i = 0; i < lines.length; i++) {
                             String[] row = lines[i].toString().split(",");
-                            model.addRow(row);
+                            modelCursuri.addRow(row);
                         }
                     }
                 } catch (Exception ex) {
@@ -71,13 +76,16 @@ public class ManagerGUI {
                     String firstLine = br.readLine();
                     if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
-                        DefaultTableModel model = (DefaultTableModel) tabelStudenti.getModel();
-                        model.setColumnIdentifiers(columnsName);
+
+                        modelStudenti.setColumnIdentifiers(columnsName);
                         Object[] lines = br.lines().toArray();
+
+
+                        modelStudenti.setRowCount(0);
 
                         for (int i = 0; i < lines.length; i++) {
                             String[] row = lines[i].toString().split(",");
-                            model.addRow(row);
+                            modelStudenti.addRow(row);
                         }
                     }
                 } catch (Exception ex) {
@@ -100,13 +108,16 @@ public class ManagerGUI {
                     String firstLine = br.readLine();
                     if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
-                        DefaultTableModel model = (DefaultTableModel) tabelProfi.getModel();
-                        model.setColumnIdentifiers(columnsName);
+
+                        modelProfi.setColumnIdentifiers(columnsName);
                         Object[] lines = br.lines().toArray();
+
+
+                        modelProfi.setRowCount(0);
 
                         for (int i = 0; i < lines.length; i++) {
                             String[] row = lines[i].toString().split(",");
-                            model.addRow(row);
+                            modelProfi.addRow(row);
                         }
                     }
                 } catch (Exception ex) {
@@ -114,6 +125,108 @@ public class ManagerGUI {
                 }
                 index[0] = 2;
                 panouTab.setSelectedIndex(index[0]);
+
+            }
+        });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String[] nullstring={"",""};
+
+                try{
+                    if(index[0]==0) {
+
+                        modelCursuri.addRow(nullstring);
+                    }
+                        if(index[0]==1) {
+                            modelStudenti.addRow(nullstring);
+                        }
+                    if(index[0]==2)
+                        modelProfi.addRow(nullstring);
+
+                }
+                catch(Exception ex) {System.out.println(ex);}
+
+
+            }
+        });
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try{
+                    if(index[0]==0) {
+
+                        if(tabelCursuri.getSelectedRow()!=-1)
+                        modelCursuri.removeRow(tabelCursuri.getSelectedRow());
+                    }
+                    if(index[0]==1) {
+                        if(tabelStudenti.getSelectedRow()!=-1)
+                        modelStudenti.removeRow(tabelStudenti.getSelectedRow());
+                    }
+                    if(index[0]==2)
+                        if(tabelProfi.getSelectedRow()!=-1)
+                        modelProfi.removeRow(tabelProfi.getSelectedRow());
+
+                }
+                catch(Exception ex) {System.out.println(ex);}
+
+
+            }
+        });
+        updateButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                try{
+                    if(index[0]==0) {
+
+                        File file = new File("cursuri.csv");
+                        try {
+
+                            FileWriter fw = new FileWriter(file);
+                            FileReader fr = new FileReader(file);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            BufferedReader br = new BufferedReader(fr);
+                            String line = br.readLine();
+                            if (line == null)
+                                bw.write("nume, descriere\r\n"); //se scrie antetul
+
+                            for(int i = 0; i < modelCursuri.getRowCount(); i++){//rows
+                                for(int j = 0; j < modelCursuri.getColumnCount(); j++){//columns
+                                    bw.write(modelCursuri.getValueAt(i, j).toString()+",");
+
+                                }
+                                bw.newLine();
+                            }
+
+                            bw.close();
+                            br.close();
+                            fw.close();
+                            fr.close();
+
+                        } catch (IOException ex) {
+                            System.out.println(ex);
+                        }
+
+                    }
+
+
+
+
+
+
+                    if(index[0]==1) {
+                        if(tabelStudenti.getSelectedRow()!=-1)
+                            modelStudenti.removeRow(tabelStudenti.getSelectedRow());
+                    }
+                    if(index[0]==2)
+                        if(tabelProfi.getSelectedRow()!=-1)
+                            modelProfi.removeRow(tabelProfi.getSelectedRow());
+
+                }
+                catch(Exception ex) {System.out.println(ex);}
+
 
             }
         });

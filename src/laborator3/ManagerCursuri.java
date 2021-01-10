@@ -1,5 +1,6 @@
 package laborator3;
 
+import java.awt.color.ProfileDataException;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,10 +10,14 @@ import java.util.List;
 
 public class ManagerCursuri implements OperatiiManagerCursuri {
     List<Curs> cursuri;
+    List<Profesor> profesori;
+    List<Student> studenti;
     File StudentiFile, ProfesoriFile, CursuriFile;
 
     public ManagerCursuri() {
         cursuri = new ArrayList<Curs>();
+        profesori = new ArrayList<Profesor>();
+        studenti = new ArrayList<Student>();
         try {
             StudentiFile = new File("studenti.csv");
             ProfesoriFile = new File("profesori.csv");
@@ -124,12 +129,82 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
         }
     }
 
+    public void CitesteCursuri() {
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(CursuriFile));
+            String line = br.readLine();
+            //ignor prima linie (antetul)
+            if (line != null) {
+                line = br.readLine();
+            }
+            while (line != null) {
+                String[] splituri = line.split(",");
+
+                Curs c = new Curs(splituri[0], splituri[1].trim());
+                cursuri.add(c);
+                line = br.readLine();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public void CitesteStudenti() {
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(StudentiFile));
+            String line = br.readLine();
+            //ignor prima linie (antetul)
+            if (line != null) {
+                line = br.readLine();
+            }
+            while (line != null) {
+                String[] splituri = line.split(",");
+
+                Student s = new Student(splituri[0], splituri[1].trim(), Integer.parseInt(splituri[2].trim()));
+                studenti.add(s);
+                line = br.readLine();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public void CitesteProfi() {
+        try {
+
+            BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
+            String line = br.readLine();
+            //ignor prima linie (antetul)
+            if (line != null) {
+                line = br.readLine();
+            }
+            while (line != null) {
+                String[] splituri = line.split(",");
+
+                Profesor p = new Profesor(splituri[0], splituri[1].trim());
+                profesori.add(p);
+                line = br.readLine();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+
     public void ScrieFisiere() {
         ScrieCursuri();
         for (Curs c : cursuri) {
             c.ScrieStudenti();
             c.ScrieProf();
         }
+    }
+
+    public void CitesteFisiere() {
+        CitesteCursuri();
+        CitesteProfi();
+        CitesteStudenti();
     }
 
     class ComparaNume implements Comparator<Curs> {

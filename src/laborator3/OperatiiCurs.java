@@ -11,8 +11,6 @@ public interface OperatiiCurs {
 
     void UpdateCurs(String nume, String descriere);
 
-    void CitesteCSVStudenti(String filepath);
-
     void ScrieStudenti();
 
     void ScrieProf();

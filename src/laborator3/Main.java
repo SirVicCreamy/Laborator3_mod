@@ -1,6 +1,8 @@
 package laborator3;
 
 
+import javax.swing.*;
+
 public class Main extends ManagerGUI {
 
 
@@ -58,8 +60,12 @@ public class Main extends ManagerGUI {
         cursuri.AfiseazaCursuriLaConsola();
 */
 
-        curs3.ScrieStudenti();
-        /*
+        System.out.print("-----------------------CITIRE/SCRIERE FISIERE---------------------\n");
+        cursuri.ScrieFisiere();
+        cursuri.CitesteFisiere();
+        for(Profesor p:cursuri.profesori) System.out.println(p);
+
+
         System.out.print("-----------------------MULTITHREAD MEDII---------------------\n");
         for (int i = 0; i < studenti3.length; i++)
             curs3.noteazaStudent(studenti3[i], i + 5);
@@ -69,6 +75,8 @@ public class Main extends ManagerGUI {
 
 
 
+
+/*
         JFrame frame;
         frame = new JFrame("Manager GUI");
         frame.setContentPane(new ManagerGUI().panel);
