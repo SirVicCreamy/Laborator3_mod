@@ -68,11 +68,11 @@ public class Main  {
         cursuri.ScrieFisiere();
         cursuri.CitesteFisiere();
         for(Student s: cursuri.studenti ) System.out.println(s);
-        //for(Profesor p: cursuri.profesori ) System.out.println(p);
-       // for(Curs c: cursuri.cursuri ) System.out.println(c);
+        for(Profesor p: cursuri.profesori ) System.out.println(p);
+       for(Curs c: cursuri.cursuri ) System.out.println(c);
 
 
-/*
+
         System.out.print("-----------------------MULTITHREAD MEDII---------------------\n");
         for (int i = 0; i < studenti3.length; i++)
             curs3.noteazaStudent(studenti3[i], i + 5);
@@ -89,6 +89,6 @@ public class Main  {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(1000,500);
-*/
+
     }
 }
