@@ -9,15 +9,15 @@ import java.util.List;
 
 
 public class ManagerCursuri implements OperatiiManagerCursuri {
-    List<Curs> cursuri;
-    List<Profesor> profesori;
-    List<Student> studenti;
+    ArrayList<Curs> cursuri;
+    ArrayList<Profesor> profesori;
+    ArrayList<Student> studenti;
     File StudentiFile, ProfesoriFile, CursuriFile;
 
     public ManagerCursuri() {
-        cursuri = new ArrayList<Curs>();
-        profesori = new ArrayList<Profesor>();
-        studenti = new ArrayList<Student>();
+        cursuri = new ArrayList<Curs>(0);
+        profesori = new ArrayList<Profesor>(0);
+        studenti = new ArrayList<Student>(0);
         try {
             StudentiFile = new File("studenti.csv");
             ProfesoriFile = new File("profesori.csv");
@@ -159,7 +159,7 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
             BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
             String line = br.readLine();
             //ignor prima linie (antetul)
-            if (line != null) {
+            if (line == null) {
                 line = br.readLine();
             }
             while (line != null) {
@@ -184,6 +184,9 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
     }
 
     public void CitesteFisiere() {
+        cursuri.clear();
+        studenti.clear();
+        profesori.clear();
         CitesteCursuri();
         CitesteProfi();
         CitesteStudenti();

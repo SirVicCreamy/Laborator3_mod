@@ -23,10 +23,10 @@ public class Main  {
         Profesor prof3 = new Profesor("Canton", "Panaitescu");
         Profesor prof4 = new Profesor("Danton", "Panaitescu");
         //definire curs nou
-        Curs curs = new Curs("Rezistenta Materialelor", "Desc 1.....", prof, studenti);
-        Curs curs2 = new Curs("Analiza matematica", "Desc 2.....", prof2, studenti2);
-        Curs curs3 = new Curs("Engleza", "Desc 3.....", prof3, studenti3);
-        Curs curs4 = new Curs("Dispozitive electrice", "Desc 4.....", prof4, studenti4);
+        Curs curs = new Curs("Rezistenta Materialelor", "Desc 1", prof, studenti);
+        Curs curs2 = new Curs("Analiza matematica", "Desc 2", prof2, studenti2);
+        Curs curs3 = new Curs("Engleza", "Desc 3", prof3, studenti3);
+        Curs curs4 = new Curs("Dispozitive electrice", "Desc 4", prof4, studenti4);
         //adaugare curs in lista de cursuri
         ManagerCursuri cursuri = new ManagerCursuri();
         cursuri.AddCurs(curs3);
@@ -63,11 +63,14 @@ public class Main  {
 
 
 
-        /*
+
         System.out.print("-----------------------CITIRE/SCRIERE FISIERE---------------------\n");
         cursuri.ScrieFisiere();
         cursuri.CitesteFisiere();
-        for(Profesor p:cursuri.profesori) System.out.println(p);
+        for(Student s: cursuri.studenti ) System.out.println(s);
+        for(Profesor p: cursuri.profesori ) System.out.println(p);
+        for(Curs c: cursuri.cursuri ) System.out.println(c);
+
 
 
         System.out.print("-----------------------MULTITHREAD MEDII---------------------\n");
@@ -76,11 +79,9 @@ public class Main  {
         curs3.raportNoteStudenti();
         curs3.raportMediaStudentilor();
 
-*/
 
 
-
-
+/*
         JFrame frame;
         frame = new JFrame("Manager GUI");
         frame.setContentPane(new ManagerGUI().panel);
@@ -88,6 +89,6 @@ public class Main  {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(1000,500);
-
+*/
     }
 }

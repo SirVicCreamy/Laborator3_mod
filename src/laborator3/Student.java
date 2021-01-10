@@ -1,6 +1,9 @@
 package laborator3;
 
+import java.awt.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Student extends Persoana implements Comparable<Student> {
 
@@ -54,6 +57,7 @@ public class Student extends Persoana implements Comparable<Student> {
     }
 
     public void ScrieCSV(String filepath) {
+
         try {
             File f = new File(filepath);
             BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
@@ -63,7 +67,8 @@ public class Student extends Persoana implements Comparable<Student> {
                 if (line == null)
                     bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
 
-                bw.write(this.toString() + "\r\n");
+                   bw.write(this.toString() + "\r\n");
+
 
                 bw.flush();
             } catch (IOException e) {
