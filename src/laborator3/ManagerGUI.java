@@ -169,8 +169,8 @@ public class ManagerGUI extends ManagerCursuri {
                     }
                     if(index[0]==2) {
                         if(tabelProfi.getSelectedRow()!=-1) {
-                            Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
-                            profesori.remove(p);
+                           /* Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
+                            profesori.remove(p);*/
                             modelProfi.removeRow(tabelProfi.getSelectedRow());
                         }
                     }
@@ -181,6 +181,7 @@ public class ManagerGUI extends ManagerCursuri {
 
             }
         });
+        /*
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -286,6 +287,9 @@ public class ManagerGUI extends ManagerCursuri {
 
             }
         });
+
+            */
+
     }
 
 

@@ -1,6 +1,7 @@
 package laborator3;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
@@ -70,10 +71,52 @@ public class Curs extends Thread implements OperatiiCurs {
 
 
 
-
 	public void ScrieStudenti() {
-		for(Student s: this.studenti)
-		    s.ScrieCSV(StudentiFile.toString());
+        ArrayList<Student> listastudenti = new ArrayList<>();
+        for(Student s: studenti)
+            listastudenti.add(s);
+
+        try {
+            File f = new File(StudentiFile.toString());
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
+            try {
+                BufferedReader br = new BufferedReader(new FileReader(f));
+                String line = br.readLine();
+                if (line == null)
+                    bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
+                bw.flush();
+            } catch (IOException e) {
+                System.out.println(e);
+            } finally {
+                bw.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+        Thread lista1 = new Thread() {
+            public void run() {
+                try {
+                    for (int i = 0; i < listastudenti.size(); i=i+ 2)
+                        listastudenti.get(i).ScrieCSV(StudentiFile.toString());
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        };
+        Thread lista2 = new Thread() {
+            public void run() {
+                try {
+                    for (int i = 1; i < listastudenti.size(); i =i+ 2)
+                        listastudenti.get(i).ScrieCSV(StudentiFile.toString());
+                } catch (Exception e) {
+                    System.out.println(e);
+                }
+            }
+        };
+        lista1.start();
+        lista2.start();
+
 	}
 
     public void ScrieProf() {
@@ -213,24 +256,3 @@ public class Curs extends Thread implements OperatiiCurs {
 
 }
 
-
-
-/*
-                Thread lista2 = new Thread() {
-                    public void run() {
-
-                        Object[] listastudenti = studenti.toArray();
-                        try {
-                            for (int i = 1; i < listastudenti.length; i += 2)
-                                bw.write(listastudenti[i].toString() + "\r\n");
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                };
-                lista1.start();
-                lista2.start();
-                bw.flush();
-
-
-*/
