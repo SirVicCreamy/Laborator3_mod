@@ -107,26 +107,8 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
     }
 
     public void ScrieCursuri() {
-        try {
-
-            BufferedWriter bw = new BufferedWriter(new FileWriter(CursuriFile));
-            try {
-                BufferedReader br = new BufferedReader(new FileReader(CursuriFile));
-                String line = br.readLine();
-                if (line == null)
-                    bw.write("nume, descriere\r\n"); //se scrie antetul
-                for (Curs c : cursuri)
-                    bw.write(c.toString());
-
-                bw.flush();
-            } catch (IOException e) {
-                System.out.println(e);
-            } finally {
-                bw.close();
-            }
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+        for(Curs c: cursuri)
+            c.ScrieCSV(CursuriFile.toString());
     }
 
     public void CitesteCursuri() {

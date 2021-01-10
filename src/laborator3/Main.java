@@ -3,7 +3,7 @@ package laborator3;
 
 import javax.swing.*;
 
-public class Main extends ManagerGUI {
+public class Main  {
 
 
     public static void main(String[] args) {
@@ -60,6 +60,10 @@ public class Main extends ManagerGUI {
         cursuri.AfiseazaCursuriLaConsola();
 */
 
+
+
+
+        /*
         System.out.print("-----------------------CITIRE/SCRIERE FISIERE---------------------\n");
         cursuri.ScrieFisiere();
         cursuri.CitesteFisiere();
@@ -72,11 +76,11 @@ public class Main extends ManagerGUI {
         curs3.raportNoteStudenti();
         curs3.raportMediaStudentilor();
 
+*/
 
 
 
 
-/*
         JFrame frame;
         frame = new JFrame("Manager GUI");
         frame.setContentPane(new ManagerGUI().panel);
@@ -84,6 +88,6 @@ public class Main extends ManagerGUI {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(1000,500);
-*/
+
     }
 }

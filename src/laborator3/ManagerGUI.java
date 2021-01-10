@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.*;
 
-public class ManagerGUI {
+public class ManagerGUI extends ManagerCursuri {
 
     protected JPanel panel;
     private JLabel antet;
@@ -157,16 +157,23 @@ public class ManagerGUI {
                 try{
                     if(index[0]==0) {
 
-                        if(tabelCursuri.getSelectedRow()!=-1)
-                        modelCursuri.removeRow(tabelCursuri.getSelectedRow());
+                        if(tabelCursuri.getSelectedRow()!=-1) {
+
+                            modelCursuri.removeRow(tabelCursuri.getSelectedRow());
+                        }
                     }
                     if(index[0]==1) {
-                        if(tabelStudenti.getSelectedRow()!=-1)
-                        modelStudenti.removeRow(tabelStudenti.getSelectedRow());
+                        if(tabelStudenti.getSelectedRow()!=-1) {
+                            modelStudenti.removeRow(tabelStudenti.getSelectedRow());
+                        }
                     }
-                    if(index[0]==2)
-                        if(tabelProfi.getSelectedRow()!=-1)
-                        modelProfi.removeRow(tabelProfi.getSelectedRow());
+                    if(index[0]==2) {
+                        if(tabelProfi.getSelectedRow()!=-1) {
+                            Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
+                            profesori.remove(p);
+                            modelProfi.removeRow(tabelProfi.getSelectedRow());
+                        }
+                    }
 
                 }
                 catch(Exception ex) {System.out.println(ex);}
@@ -178,8 +185,8 @@ public class ManagerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-                    if(index[0]==0) {
+                try {
+                    if (index[0] == 0) {
 
                         File file = new File("cursuri.csv");
                         try {
@@ -192,9 +199,9 @@ public class ManagerGUI {
                             if (line == null)
                                 bw.write("nume, descriere\r\n"); //se scrie antetul
 
-                            for(int i = 0; i < modelCursuri.getRowCount(); i++){//rows
-                                for(int j = 0; j < modelCursuri.getColumnCount(); j++){//columns
-                                    bw.write(modelCursuri.getValueAt(i, j).toString()+",");
+                            for (int i = 0; i < tabelCursuri.getRowCount(); i++) {//rows
+                                for (int j = 0; j < tabelCursuri.getColumnCount(); j++) {//columns
+                                    bw.write(tabelCursuri.getValueAt(i, j).toString() + ",");
 
                                 }
                                 bw.newLine();
@@ -212,18 +219,67 @@ public class ManagerGUI {
                     }
 
 
+                    if (index[0] == 1) {
 
+                        File file = new File("studenti.csv");
+                        try {
 
+                            FileWriter fw = new FileWriter(file);
+                            FileReader fr = new FileReader(file);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            BufferedReader br = new BufferedReader(fr);
+                            String line = br.readLine();
+                            if (line == null)
+                                bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
 
+                            for (int i = 0; i < tabelStudenti.getRowCount(); i++) {//rows
+                                for (int j = 0; j < tabelStudenti.getColumnCount(); j++) {//columns
+                                    bw.write(tabelStudenti.getValueAt(i, j).toString() + ",");
 
-                    if(index[0]==1) {
-                        if(tabelStudenti.getSelectedRow()!=-1)
-                            modelStudenti.removeRow(tabelStudenti.getSelectedRow());
+                                }
+                                bw.newLine();
+                            }
+
+                            bw.close();
+                            br.close();
+                            fw.close();
+                            fr.close();
+
+                        } catch (IOException ex) {
+                            System.out.println(ex);
+                        }
                     }
-                    if(index[0]==2)
-                        if(tabelProfi.getSelectedRow()!=-1)
-                            modelProfi.removeRow(tabelProfi.getSelectedRow());
+                    if (index[0] == 2) {
 
+                        File file = new File("profesori.csv");
+                        try {
+
+                            FileWriter fw = new FileWriter(file);
+                            FileReader fr = new FileReader(file);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            BufferedReader br = new BufferedReader(fr);
+                            String line = br.readLine();
+                            if (line == null)
+                                bw.write("nume, prenume\r\n"); //se scrie antetul
+
+                            for(int i = 0; i < tabelProfi.getRowCount(); i++){//rows
+                                for(int j = 0; j < tabelProfi.getColumnCount(); j++){//columns
+                                    bw.write(tabelProfi.getValueAt(i, j).toString());
+                                    if(j<tabelProfi.getColumnCount()-1) bw.write(",");
+                                }
+                                bw.newLine();
+                            }
+
+                            bw.close();
+                            br.close();
+                            fw.close();
+                            fr.close();
+
+                        } catch (IOException ex) {
+                            System.out.println(ex);
+                        }
+
+                    }
                 }
                 catch(Exception ex) {System.out.println(ex);}
 

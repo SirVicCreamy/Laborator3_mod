@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="gui stuff">
+    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="csv stuff iar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cursuri.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cursuri.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profesori.csv" beforeDir="false" afterPath="$PROJECT_DIR$/profesori.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Curs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerGUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerGUI.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/OperatiiCurs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/OperatiiCurs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/studenti.csv" beforeDir="false" afterPath="$PROJECT_DIR$/studenti.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,15 +67,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -107,7 +106,8 @@
       <workItem from="1609702313461" duration="1050000" />
       <workItem from="1610131796947" duration="14217000" />
       <workItem from="1610147850603" duration="19173000" />
-      <workItem from="1610218051094" duration="28362000" />
+      <workItem from="1610218051094" duration="28910000" />
+      <workItem from="1610282613143" duration="4193000" />
     </task>
     <task id="LOCAL-00001" summary="Pain">
       <created>1607020756748</created>
@@ -179,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1610248045130</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="csv stuff iar">
+      <created>1610256976322</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1610256976322</updated>
+    </task>
+    <task id="LOCAL-00012" summary="csv stuff iar">
+      <created>1610257154344</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1610257154344</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,7 +219,8 @@
     <MESSAGE value="csv stuff" />
     <MESSAGE value="thread stuff" />
     <MESSAGE value="gui stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="gui stuff" />
+    <MESSAGE value="csv stuff iar" />
+    <option name="LAST_COMMIT_MESSAGE" value="csv stuff iar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -11,7 +11,7 @@ public class Curs extends Thread implements OperatiiCurs {
     Profesor profu;
     TreeSet<Student> studenti;
     int[] note;
-    File StudentiFile, ProfesoriFile;
+    File StudentiFile, ProfesoriFile, CursuriFile;
 
     public Curs() {
         this.nume = "";
@@ -23,6 +23,7 @@ public class Curs extends Thread implements OperatiiCurs {
         try {
             StudentiFile = new File("studenti.csv");
             ProfesoriFile = new File("profesori.csv");
+            CursuriFile = new File("cursuri.csv");
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -38,6 +39,7 @@ public class Curs extends Thread implements OperatiiCurs {
         try {
             StudentiFile = new File("studenti.csv");
             ProfesoriFile = new File("profesori.csv");
+            CursuriFile = new File("cursuri.csv");
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -50,6 +52,7 @@ public class Curs extends Thread implements OperatiiCurs {
         try {
             StudentiFile = new File("studenti.csv");
             ProfesoriFile = new File("profesori.csv");
+            CursuriFile = new File("cursuri.csv");
         } catch (Exception ex) {
             System.out.println(ex);
         }
@@ -69,37 +72,27 @@ public class Curs extends Thread implements OperatiiCurs {
 
 
 	public void ScrieStudenti() {
-		try {
-
-			BufferedWriter bw = new BufferedWriter(new FileWriter(StudentiFile,true));
-			try {
-				BufferedReader br = new BufferedReader(new FileReader(StudentiFile));
-				String line = br.readLine();
-				if(line==null)
-					bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
-				for(Student s : this.studenti)
-					bw.write(s.toString() + "\r\n");
-				bw.flush();
-			} catch (IOException e) {
-				System.out.println(e);
-			} finally {
-				bw.close();
-			}
-		} catch (Exception ex) {
-			System.out.println(ex);
-		}
+		for(Student s: this.studenti)
+		    s.ScrieCSV(StudentiFile.toString());
 	}
 
     public void ScrieProf() {
+        this.profu.ScrieCSV(ProfesoriFile.toString());
+    }
+
+    public void ScrieCSV(String filepath)
+    {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(ProfesoriFile, true));
+            File f = new File(filepath);
+            BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
             try {
-                BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
+                BufferedReader br = new BufferedReader(new FileReader(f));
                 String line = br.readLine();
                 if (line == null)
-                    bw.write("nume, prenume\r\n"); //se scrie antetul
+                    bw.write("nume, descriere\r\n"); //se scrie antetul
 
-                bw.write(this.profu.toString() + "\r\n");
+                bw.write(this.toString() + "\r\n");
+
                 bw.flush();
             } catch (IOException e) {
                 System.out.println(e);
@@ -110,7 +103,6 @@ public class Curs extends Thread implements OperatiiCurs {
             System.out.println(ex);
         }
     }
-
 
 
     public void AddStudent(Student student) {
@@ -132,7 +124,7 @@ public class Curs extends Thread implements OperatiiCurs {
 
     @Override
     public String toString() {
-        String str = nume + ", " + descriere + "\n";
+        String str = nume + ", " + descriere;
 		/*for (Student s : studenti) {
 			str += s + "\n";
 		}*/
@@ -223,18 +215,7 @@ public class Curs extends Thread implements OperatiiCurs {
 
 
 
-/*Thread lista1 = new Thread() {
-                    public void run() {
-
-                        Object[] listastudenti = studenti.toArray();
-                        try {
-                            for (int i = 0; i < listastudenti.length; i += 2)
-                                bw.write(listastudenti[i].toString() + "\r\n");
-                        } catch (Exception e) {
-                            System.out.println(e);
-                        }
-                    }
-                };
+/*
                 Thread lista2 = new Thread() {
                     public void run() {
 
