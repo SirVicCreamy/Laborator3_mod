@@ -99,6 +99,8 @@ public class Curs extends Thread implements OperatiiCurs {
                 try {
                     for (int i = 0; i < listastudenti.size(); i=i+ 2)
                         listastudenti.get(i).ScrieCSV(StudentiFile.toString());
+
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
@@ -109,11 +111,15 @@ public class Curs extends Thread implements OperatiiCurs {
                 try {
                     for (int i = 1; i < listastudenti.size(); i =i+ 2)
                         listastudenti.get(i).ScrieCSV(StudentiFile.toString());
+
+
                 } catch (Exception e) {
                     System.out.println(e);
                 }
             }
         };
+        lista1.setPriority(10);
+        lista2.setPriority(10);
         lista1.start();
         lista2.start();
 
@@ -241,6 +247,8 @@ public class Curs extends Thread implements OperatiiCurs {
                 }
             }
         };
+        medie1.setPriority(9);
+        medie2.setPriority(9);
         medie1.start();
         medie2.start();
     }

@@ -141,9 +141,10 @@ public class ManagerGUI extends ManagerCursuri {
                         if(index[0]==1) {
                             modelStudenti.addRow(nullstring);
                         }
-                    if(index[0]==2)
-                        modelProfi.addRow(nullstring);
+                    if(index[0]==2) {
 
+                        modelProfi.addRow(nullstring);
+                    }
                 }
                 catch(Exception ex) {System.out.println(ex);}
 
@@ -158,19 +159,24 @@ public class ManagerGUI extends ManagerCursuri {
                     if(index[0]==0) {
 
                         if(tabelCursuri.getSelectedRow()!=-1) {
-
+                            Curs c= new Curs(tabelCursuri.getValueAt(tabelCursuri.getSelectedRow(),0).toString(),tabelCursuri.getValueAt(tabelCursuri.getSelectedRow(),1).toString());
+                            cursuri.remove(c);
                             modelCursuri.removeRow(tabelCursuri.getSelectedRow());
                         }
                     }
                     if(index[0]==1) {
                         if(tabelStudenti.getSelectedRow()!=-1) {
+                            Student s= new Student(tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),0).toString(),
+                                    tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),1).toString(),
+                                    Integer.parseInt(tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),2).toString()));
+                            studenti.remove(s);
                             modelStudenti.removeRow(tabelStudenti.getSelectedRow());
                         }
                     }
                     if(index[0]==2) {
                         if(tabelProfi.getSelectedRow()!=-1) {
-                           /* Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
-                            profesori.remove(p);*/
+                            Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
+                            profesori.remove(p);
                             modelProfi.removeRow(tabelProfi.getSelectedRow());
                         }
                     }
@@ -181,6 +187,7 @@ public class ManagerGUI extends ManagerCursuri {
 
             }
         });
+
         /*
         updateButton.addActionListener(new ActionListener() {
             @Override
@@ -252,29 +259,28 @@ public class ManagerGUI extends ManagerCursuri {
                     }
                     if (index[0] == 2) {
 
-                        File file = new File("profesori.csv");
+
                         try {
 
-                            FileWriter fw = new FileWriter(file);
-                            FileReader fr = new FileReader(file);
+                            FileWriter fw = new FileWriter(ProfesoriFile);
+                            FileReader fr = new FileReader(ProfesoriFile);
                             BufferedWriter bw = new BufferedWriter(fw);
                             BufferedReader br = new BufferedReader(fr);
                             String line = br.readLine();
                             if (line == null)
                                 bw.write("nume, prenume\r\n"); //se scrie antetul
 
-                            for(int i = 0; i < tabelProfi.getRowCount(); i++){//rows
-                                for(int j = 0; j < tabelProfi.getColumnCount(); j++){//columns
-                                    bw.write(tabelProfi.getValueAt(i, j).toString());
-                                    if(j<tabelProfi.getColumnCount()-1) bw.write(",");
-                                }
-                                bw.newLine();
-                            }
+                            for(Profesor prof: profesori) System.out.println(prof);
+                                for(Profesor prof: profesori)
+
+                                   prof.ScrieCSV(ProfesoriFile.toString());
+
 
                             bw.close();
                             br.close();
                             fw.close();
                             fr.close();
+
 
                         } catch (IOException ex) {
                             System.out.println(ex);
@@ -288,7 +294,7 @@ public class ManagerGUI extends ManagerCursuri {
             }
         });
 
-            */
+*/
 
     }
 

@@ -159,7 +159,7 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
             BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
             String line = br.readLine();
             //ignor prima linie (antetul)
-            if (line == null) {
+            if (line != null) {
                 line = br.readLine();
             }
             while (line != null) {

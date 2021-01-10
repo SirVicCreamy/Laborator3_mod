@@ -2,13 +2,25 @@ package laborator3;
 
 
 import javax.swing.*;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 public class Main  {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
-        //new ManagerGUI();
+        //CLEAR FILES
+        PrintWriter writer1 = new PrintWriter("studenti.csv");
+        writer1.print("");
+        writer1.close();
+        PrintWriter writer2 = new PrintWriter("cursuri.csv");
+        writer2.print("");
+        writer2.close();
+        PrintWriter writer3 = new PrintWriter("profesori.csv");
+        writer2.print("");
+        writer2.close();
+
 
         //definire studenti
         Student[] studenti = new Student[]{new Student("Negoita", "Andrei", 3333), new Student("Mateescu", "Ion", 2222)};
@@ -62,14 +74,14 @@ public class Main  {
 
 
 
-
-
         System.out.print("-----------------------CITIRE/SCRIERE FISIERE (MULTITHREAD STUDENTI)---------------------\n");
         cursuri.ScrieFisiere();
         cursuri.CitesteFisiere();
         for(Student s: cursuri.studenti ) System.out.println(s);
+        System.out.println("---");
         for(Profesor p: cursuri.profesori ) System.out.println(p);
-       for(Curs c: cursuri.cursuri ) System.out.println(c);
+        System.out.println("---");
+        for(Curs c: cursuri.cursuri ) System.out.println(c);
 
 
 
@@ -78,7 +90,6 @@ public class Main  {
             curs3.noteazaStudent(studenti3[i], i + 5);
         curs3.raportNoteStudenti();
         curs3.raportMediaStudentilor();
-
 
 
 
