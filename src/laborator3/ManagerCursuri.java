@@ -150,6 +150,14 @@ public class ManagerCursuri implements OperatiiManagerCursuri{
 		}
 	}
 
+	public void ScrieFisiere()
+	{
+		ScrieCursuri();
+		for(Curs c : cursuri) {
+			c.ScrieStudenti();
+			c.ScrieProf();
+		}
+	}
 
 
 

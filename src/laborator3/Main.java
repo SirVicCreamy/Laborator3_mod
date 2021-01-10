@@ -1,9 +1,11 @@
 package laborator3;
 
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.File;
 
-public class Main {
+public class Main extends  ManagerGUI {
 
 
     public static void main(String[] args) {
@@ -11,17 +13,17 @@ public class Main {
         //new ManagerGUI();
 
         //definire studenti
-        Student[] studenti = new Student[]{new Student("Negoita","Andrei",3333),new Student("Mateescu","Ion",2222)};
-        Student[] studenti2 = new Student[]{new Student("George","Mihai",2231)};
-        Student[] studenti3 = new Student[]{new Student("Bratu","Bogdan",2222),new Student("Iordache","Tiberiu",1111),
-                new Student("Savu","Vlad",5555),new Student("Panait","Alexandra",3333)};
-        Student[] studenti4 = new Student[]{new Student("Andone","Nicolae",2231),new Student("Ionescu","Octavian",4221)};
+        Student[] studenti = new Student[]{new Student("Negoita", "Andrei", 3333), new Student("Mateescu", "Ion", 2222)};
+        Student[] studenti2 = new Student[]{new Student("George", "Mihai", 2231)};
+        Student[] studenti3 = new Student[]{new Student("Bratu", "Bogdan", 2222), new Student("Iordache", "Tiberiu", 1111),
+                new Student("Savu", "Vlad", 5555), new Student("Panait", "Alexandra", 3333)};
+        Student[] studenti4 = new Student[]{new Student("Andone", "Nicolae", 2231), new Student("Ionescu", "Octavian", 4221)};
 
         //definire profesor
-        Profesor prof = new Profesor("Aanton","Panaitescu");
-        Profesor prof2 = new Profesor("Banton","Panaitescu");
-        Profesor prof3 = new Profesor("Canton","Panaitescu");
-        Profesor prof4 = new Profesor("Danton","Panaitescu");
+        Profesor prof = new Profesor("Aanton", "Panaitescu");
+        Profesor prof2 = new Profesor("Banton", "Panaitescu");
+        Profesor prof3 = new Profesor("Canton", "Panaitescu");
+        Profesor prof4 = new Profesor("Danton", "Panaitescu");
         //definire curs nou
         Curs curs = new Curs("Rezistenta Materialelor", "Desc 1.....", prof, studenti);
         Curs curs2 = new Curs("Analiza matematica", "Desc 2.....", prof2, studenti2);
@@ -61,12 +63,21 @@ public class Main {
 */
 
         System.out.print("-----------------------MULTITHREAD---------------------\n");
-      for(int i=0;i<studenti3.length;i++)
-           curs3.noteazaStudent(studenti3[i],i+5);
+        for (int i = 0; i < studenti3.length; i++)
+            curs3.noteazaStudent(studenti3[i], i + 5);
         curs3.raportNoteStudenti();
         curs3.raportMediaStudentilor();
 
+        cursuri.ScrieFisiere();
+
+
+        JFrame frame;
+        frame = new JFrame("Manager GUI");
+        frame.setContentPane(new ManagerGUI().panel);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+        frame.setSize(1000,500);
+
     }
-
-
 }

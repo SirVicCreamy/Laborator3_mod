@@ -61,7 +61,6 @@ public class Curs extends Thread implements OperatiiCurs {
 				String line = br.readLine();
 				if(line==null)
 					bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
-
 				for(Student s : this.studenti)
 					bw.write(s.toString() + "\r\n");
 				bw.flush();
@@ -82,7 +81,7 @@ public class Curs extends Thread implements OperatiiCurs {
 				BufferedReader br = new BufferedReader(new FileReader(ProfesoriFile));
 				String line = br.readLine();
 				if(line==null)
-					bw.write("nume, prenume,\r\n"); //se scrie antetul
+					bw.write("nume, prenume\r\n"); //se scrie antetul
 
 				bw.write(this.profu.toString()+"\r\n");
 				bw.flush();
@@ -186,8 +185,6 @@ public class Curs extends Thread implements OperatiiCurs {
 
 
 	public void raportMediaStudentilor() {
-
-
 
 		Thread medie1 = new Thread () {
 			public void run () {

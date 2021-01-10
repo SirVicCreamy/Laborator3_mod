@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="laborator3.ManagerGUI">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="1157" height="521"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="e7917" class="javax.swing.JLabel" binding="antet">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <font name="Ubuntu Mono" size="48" style="1"/>
+          <text value="MANAGER"/>
+        </properties>
+      </component>
+      <hspacer id="69c1a">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <component id="aea1" class="javax.swing.JButton" binding="profiButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Profi"/>
+        </properties>
+      </component>
+      <component id="74ad6" class="javax.swing.JButton" binding="cursuriButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cursuri"/>
+        </properties>
+      </component>
+      <component id="58d67" class="javax.swing.JButton" binding="studentiButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Studenti"/>
+        </properties>
+      </component>
+      <tabbedpane id="5d30" binding="panouTab">
+        <constraints>
+          <grid row="1" column="0" row-span="3" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="200" height="200"/>
+          </grid>
+        </constraints>
+        <properties>
+          <name value=""/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <scrollpane id="2f017" binding="cursuriPanel">
+            <constraints>
+              <tabbedpane title="Cursuri"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="86d9d" class="javax.swing.JTable" binding="tabelCursuri">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="60e3e" binding="studentiPanel">
+            <constraints>
+              <tabbedpane title="Studenti"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="9785c" class="javax.swing.JTable" binding="tabelStudenti">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+          <scrollpane id="25920" binding="profiPanel">
+            <constraints>
+              <tabbedpane title="Profi"/>
+            </constraints>
+            <properties>
+              <name value="Profi"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="45515" class="javax.swing.JTable" binding="tabelProfi">
+                <constraints/>
+                <properties/>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </tabbedpane>
+    </children>
+  </grid>
+</form>

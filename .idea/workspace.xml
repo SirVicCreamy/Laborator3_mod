@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="csv stuff">
+    <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="thread stuff">
+      <change afterPath="$PROJECT_DIR$/src/laborator3/ManagerGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laborator3/ManagerGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Curs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Curs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/laborator3/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Student.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerCursuri.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -40,6 +43,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="230" />
+    <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="543" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Laborator5" />
@@ -58,6 +62,19 @@
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <RunnerSettings RunnerId="Run" />
       <ConfigurationWrapper RunnerId="Run" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,7 +107,7 @@
       <workItem from="1609702313461" duration="1050000" />
       <workItem from="1610131796947" duration="14217000" />
       <workItem from="1610147850603" duration="19173000" />
-      <workItem from="1610218051094" duration="6915000" />
+      <workItem from="1610218051094" duration="16329000" />
     </task>
     <task id="LOCAL-00001" summary="Pain">
       <created>1607020756748</created>
@@ -141,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610218622531</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="thread stuff">
+      <created>1610225012928</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1610225012928</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -165,7 +189,8 @@
     <MESSAGE value="Setu pulii" />
     <MESSAGE value="Sort grupe" />
     <MESSAGE value="csv stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="csv stuff" />
+    <MESSAGE value="thread stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="thread stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
