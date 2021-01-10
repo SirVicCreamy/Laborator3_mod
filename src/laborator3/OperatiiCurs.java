@@ -1,16 +1,21 @@
 package laborator3;
 
-import java.io.*;
-
 public interface OperatiiCurs {
-    public void UpdateProfesor(Profesor p);
-    public void AddStudent(Student student);
-    public void RemoveStudent(Student student);
-    public void UpdateStudent(Student student);
-    public void UpdateCurs(String nume, String descriere);
-    public void CitesteCSVStudenti(String filepath);
-    public void ScrieStudenti();
-    public void ScrieProf();
+    void UpdateProfesor(Profesor p);
+
+    void AddStudent(Student student);
+
+    void RemoveStudent(Student student);
+
+    void UpdateStudent(Student student);
+
+    void UpdateCurs(String nume, String descriere);
+
+    void CitesteCSVStudenti(String filepath);
+
+    void ScrieStudenti();
+
+    void ScrieProf();
 
 }
 

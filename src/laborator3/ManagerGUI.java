@@ -2,7 +2,6 @@ package laborator3;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -23,21 +22,26 @@ public class ManagerGUI {
     private JScrollPane cursuriPanel;
     private JTable tabelCursuri;
     private JTable tabelProfi;
+    private JButton deleteButton;
+    private JButton updateButton;
+    private JButton addButton;
 
 
     public ManagerGUI() {
 
-
+        final int[] index = {0};
         cursuriButton.addActionListener(new ActionListener() {
+
+
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                File file=new File("cursuri.csv");
+                File file = new File("cursuri.csv");
                 try {
                     FileReader fr = new FileReader(file);
                     BufferedReader br = new BufferedReader(fr);
                     String firstLine = br.readLine();
-                    if(firstLine!=null) {
+                    if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
                         DefaultTableModel model = (DefaultTableModel) tabelCursuri.getModel();
                         model.setColumnIdentifiers(columnsName);
@@ -51,8 +55,8 @@ public class ManagerGUI {
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-
-                panouTab.setSelectedIndex(0);
+                index[0] = 0;
+                panouTab.setSelectedIndex(index[0]);
 
             }
         });
@@ -60,12 +64,12 @@ public class ManagerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                File file=new File("studenti.csv");
+                File file = new File("studenti.csv");
                 try {
                     FileReader fr = new FileReader(file);
                     BufferedReader br = new BufferedReader(fr);
                     String firstLine = br.readLine();
-                    if(firstLine!=null) {
+                    if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
                         DefaultTableModel model = (DefaultTableModel) tabelStudenti.getModel();
                         model.setColumnIdentifiers(columnsName);
@@ -79,7 +83,9 @@ public class ManagerGUI {
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-                panouTab.setSelectedIndex(1);
+
+                index[0] = 1;
+                panouTab.setSelectedIndex(index[0]);
 
             }
         });
@@ -87,12 +93,12 @@ public class ManagerGUI {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                File file=new File("profesori.csv");
+                File file = new File("profesori.csv");
                 try {
                     FileReader fr = new FileReader(file);
                     BufferedReader br = new BufferedReader(fr);
                     String firstLine = br.readLine();
-                    if(firstLine!=null) {
+                    if (firstLine != null) {
                         String[] columnsName = firstLine.split(",");
                         DefaultTableModel model = (DefaultTableModel) tabelProfi.getModel();
                         model.setColumnIdentifiers(columnsName);
@@ -106,7 +112,9 @@ public class ManagerGUI {
                 } catch (Exception ex) {
                     System.out.println(ex);
                 }
-                panouTab.setSelectedIndex(2);
+                index[0] = 2;
+                panouTab.setSelectedIndex(index[0]);
+
             }
         });
     }

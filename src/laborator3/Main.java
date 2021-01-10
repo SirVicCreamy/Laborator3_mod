@@ -1,11 +1,7 @@
 package laborator3;
 
 
-import javax.swing.*;
-import java.awt.*;
-import java.io.File;
-
-public class Main extends  ManagerGUI {
+public class Main extends ManagerGUI {
 
 
     public static void main(String[] args) {
@@ -62,13 +58,15 @@ public class Main extends  ManagerGUI {
         cursuri.AfiseazaCursuriLaConsola();
 */
 
-        System.out.print("-----------------------MULTITHREAD---------------------\n");
+        curs3.ScrieStudenti();
+        /*
+        System.out.print("-----------------------MULTITHREAD MEDII---------------------\n");
         for (int i = 0; i < studenti3.length; i++)
             curs3.noteazaStudent(studenti3[i], i + 5);
         curs3.raportNoteStudenti();
         curs3.raportMediaStudentilor();
 
-        cursuri.ScrieFisiere();
+
 
 
         JFrame frame;
@@ -78,6 +76,6 @@ public class Main extends  ManagerGUI {
         frame.pack();
         frame.setVisible(true);
         frame.setSize(1000,500);
-
+*/
     }
 }
