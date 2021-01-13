@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e3a00763-2c4b-403d-b0db-0a197b3c5005" name="Default Changelist" comment="gui update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cursuri.csv" beforeDir="false" afterPath="$PROJECT_DIR$/cursuri.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/profesori.csv" beforeDir="false" afterPath="$PROJECT_DIR$/profesori.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laborator3/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/laborator3/ManagerGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laborator3/ManagerGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/studenti.csv" beforeDir="false" afterPath="$PROJECT_DIR$/studenti.csv" afterDir="false" />
     </list>

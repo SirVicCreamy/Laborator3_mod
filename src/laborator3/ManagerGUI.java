@@ -4,7 +4,10 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.PrintWriter;
 
 public class ManagerGUI extends ManagerCursuri {
 
@@ -50,7 +53,7 @@ public class ManagerGUI extends ManagerCursuri {
                         modelCursuri.setColumnIdentifiers(columnsName);
                         Object[] lines = br.lines().toArray();
 
-                       modelCursuri.setRowCount(0);
+                        modelCursuri.setRowCount(0);
 
                         for (int i = 0; i < lines.length; i++) {
                             String[] row = lines[i].toString().split(",");
@@ -133,20 +136,21 @@ public class ManagerGUI extends ManagerCursuri {
             public void actionPerformed(ActionEvent e) {
 
 
-                try{
-                    if(index[0]==0) {
+                try {
+                    if (index[0] == 0) {
 
-                        modelCursuri.addRow(new Object[]{"nume","descriere"});
+                        modelCursuri.addRow(new Object[]{"nume", "descriere"});
                     }
-                        if(index[0]==1) {
-                            modelStudenti.addRow(new Object[]{"nume","prenume","grupa"});
-                        }
-                    if(index[0]==2) {
+                    if (index[0] == 1) {
+                        modelStudenti.addRow(new Object[]{"nume", "prenume", "grupa"});
+                    }
+                    if (index[0] == 2) {
 
-                        modelProfi.addRow(new Object[]{"nume","prenume"});
+                        modelProfi.addRow(new Object[]{"nume", "prenume"});
                     }
+                } catch (Exception ex) {
+                    System.out.println(ex);
                 }
-                catch(Exception ex) {System.out.println(ex);}
 
 
             }
@@ -155,29 +159,30 @@ public class ManagerGUI extends ManagerCursuri {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                try{
-                    if(index[0]==0) {
+                try {
+                    if (index[0] == 0) {
 
-                        if(tabelCursuri.getSelectedRow()!=-1) {
+                        if (tabelCursuri.getSelectedRow() != -1) {
 
                             modelCursuri.removeRow(tabelCursuri.getSelectedRow());
                         }
                     }
-                    if(index[0]==1) {
-                        if(tabelStudenti.getSelectedRow()!=-1) {
+                    if (index[0] == 1) {
+                        if (tabelStudenti.getSelectedRow() != -1) {
 
                             modelStudenti.removeRow(tabelStudenti.getSelectedRow());
                         }
                     }
-                    if(index[0]==2) {
-                        if(tabelProfi.getSelectedRow()!=-1) {
+                    if (index[0] == 2) {
+                        if (tabelProfi.getSelectedRow() != -1) {
 
                             modelProfi.removeRow(tabelProfi.getSelectedRow());
                         }
                     }
 
+                } catch (Exception ex) {
+                    System.out.println(ex);
                 }
-                catch(Exception ex) {System.out.println(ex);}
 
 
             }
@@ -196,10 +201,10 @@ public class ManagerGUI extends ManagerCursuri {
                         writer.close();
                         cursuri.clear();
                         for (int i = 0; i < tabelCursuri.getRowCount(); i++) {
-                            Curs c= new Curs(tabelCursuri.getValueAt(i,0).toString(),tabelCursuri.getValueAt(i,1).toString());
+                            Curs c = new Curs(tabelCursuri.getValueAt(i, 0).toString(), tabelCursuri.getValueAt(i, 1).toString());
                             cursuri.add(c);
                         }
-                        for(Curs c: cursuri)
+                        for (Curs c : cursuri)
                             c.ScrieCSV("cursuri.csv");
 
                     }
@@ -211,12 +216,12 @@ public class ManagerGUI extends ManagerCursuri {
                         writer.print("");
                         writer.close();
                         studenti.clear();
-                            for (int i = 0; i < tabelStudenti.getRowCount(); i++) {
-                                Student s= new Student(tabelStudenti.getValueAt(i,0).toString(),tabelStudenti.getValueAt(i,1).toString(),Integer.parseInt(tabelStudenti.getValueAt(i,2).toString()));
-                                studenti.add(s);
-                                }
-                            for(Student s: studenti)
-                                s.ScrieCSV("studenti.csv");
+                        for (int i = 0; i < tabelStudenti.getRowCount(); i++) {
+                            Student s = new Student(tabelStudenti.getValueAt(i, 0).toString(), tabelStudenti.getValueAt(i, 1).toString(), Integer.parseInt(tabelStudenti.getValueAt(i, 2).toString()));
+                            studenti.add(s);
+                        }
+                        for (Student s : studenti)
+                            s.ScrieCSV("studenti.csv");
 
                     }
                     if (index[0] == 2) {
@@ -227,23 +232,21 @@ public class ManagerGUI extends ManagerCursuri {
                         writer.close();
                         profesori.clear();
                         for (int i = 0; i < tabelProfi.getRowCount(); i++) {
-                            Profesor p= new Profesor(tabelProfi.getValueAt(i,0).toString(),tabelProfi.getValueAt(i,1).toString());
+                            Profesor p = new Profesor(tabelProfi.getValueAt(i, 0).toString(), tabelProfi.getValueAt(i, 1).toString());
                             profesori.add(p);
-                         }
-                        for(Profesor p :profesori)
-                                p.ScrieCSV("profesori.csv");
+                        }
+                        for (Profesor p : profesori)
+                            p.ScrieCSV("profesori.csv");
 
+                    }
+
+
+                } catch (Exception ex) {
+                    System.out.println(ex);
                 }
-
-
-
-                }
-                catch (Exception ex)
-                {System.out.println(ex);}
             }
 
         });
-
 
 
     }

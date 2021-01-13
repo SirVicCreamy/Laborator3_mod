@@ -70,8 +70,8 @@ public class Main {
         writer2.print("");
         writer2.close();
         PrintWriter writer3 = new PrintWriter("profesori.csv");
-        writer2.print("");
-        writer2.close();
+        writer3.print("");
+        writer3.close();
 
 
         System.out.print("-----------------------CITIRE/SCRIERE FISIERE (MULTITHREAD STUDENTI)---------------------\n");
