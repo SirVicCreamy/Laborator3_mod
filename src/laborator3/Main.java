@@ -5,21 +5,10 @@ import javax.swing.*;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class Main  {
+public class Main {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-
-        //CLEAR FILES
-        PrintWriter writer1 = new PrintWriter("studenti.csv");
-        writer1.print("");
-        writer1.close();
-        PrintWriter writer2 = new PrintWriter("cursuri.csv");
-        writer2.print("");
-        writer2.close();
-        PrintWriter writer3 = new PrintWriter("profesori.csv");
-        writer2.print("");
-        writer2.close();
 
 
         //definire studenti
@@ -73,16 +62,26 @@ public class Main  {
 */
 
 
+        //CLEAR FILES
+        PrintWriter writer1 = new PrintWriter("studenti.csv");
+        writer1.print("");
+        writer1.close();
+        PrintWriter writer2 = new PrintWriter("cursuri.csv");
+        writer2.print("");
+        writer2.close();
+        PrintWriter writer3 = new PrintWriter("profesori.csv");
+        writer2.print("");
+        writer2.close();
+
 
         System.out.print("-----------------------CITIRE/SCRIERE FISIERE (MULTITHREAD STUDENTI)---------------------\n");
         cursuri.ScrieFisiere();
         cursuri.CitesteFisiere();
-        for(Student s: cursuri.studenti ) System.out.println(s);
+        for (Student s : cursuri.studenti) System.out.println(s);
         System.out.println("---");
-        for(Profesor p: cursuri.profesori ) System.out.println(p);
+        for (Profesor p : cursuri.profesori) System.out.println(p);
         System.out.println("---");
-        for(Curs c: cursuri.cursuri ) System.out.println(c);
-
+        for (Curs c : cursuri.cursuri) System.out.println(c);
 
 
         System.out.print("-----------------------MULTITHREAD MEDII---------------------\n");
@@ -92,14 +91,13 @@ public class Main  {
         curs3.raportMediaStudentilor();
 
 
-
         JFrame frame;
         frame = new JFrame("Manager GUI");
         frame.setContentPane(new ManagerGUI().panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
         frame.setVisible(true);
-        frame.setSize(1000,500);
+        frame.setSize(1000, 500);
 
     }
 }

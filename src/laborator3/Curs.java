@@ -70,10 +70,9 @@ public class Curs extends Thread implements OperatiiCurs {
     }
 
 
-
-	public void ScrieStudenti() {
+    public void ScrieStudenti() {
         ArrayList<Student> listastudenti = new ArrayList<>();
-        for(Student s: studenti)
+        for (Student s : studenti)
             listastudenti.add(s);
 
         try {
@@ -97,7 +96,7 @@ public class Curs extends Thread implements OperatiiCurs {
         Thread lista1 = new Thread() {
             public void run() {
                 try {
-                    for (int i = 0; i < listastudenti.size(); i=i+ 2)
+                    for (int i = 0; i < listastudenti.size(); i = i + 2)
                         listastudenti.get(i).ScrieCSV(StudentiFile.toString());
 
 
@@ -109,7 +108,7 @@ public class Curs extends Thread implements OperatiiCurs {
         Thread lista2 = new Thread() {
             public void run() {
                 try {
-                    for (int i = 1; i < listastudenti.size(); i =i+ 2)
+                    for (int i = 1; i < listastudenti.size(); i = i + 2)
                         listastudenti.get(i).ScrieCSV(StudentiFile.toString());
 
 
@@ -123,14 +122,13 @@ public class Curs extends Thread implements OperatiiCurs {
         lista1.start();
         lista2.start();
 
-	}
+    }
 
     public void ScrieProf() {
         this.profu.ScrieCSV(ProfesoriFile.toString());
     }
 
-    public void ScrieCSV(String filepath)
-    {
+    public void ScrieCSV(String filepath) {
         try {
             File f = new File(filepath);
             BufferedWriter bw = new BufferedWriter(new FileWriter(f, true));
@@ -173,7 +171,7 @@ public class Curs extends Thread implements OperatiiCurs {
 
     @Override
     public String toString() {
-        String str = nume + ", " + descriere;
+        String str = nume + "," + descriere;
 		/*for (Student s : studenti) {
 			str += s + "\n";
 		}*/

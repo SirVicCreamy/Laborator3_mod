@@ -1,9 +1,6 @@
 package laborator3;
 
-import java.awt.*;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Student extends Persoana implements Comparable<Student> {
 
@@ -24,7 +21,7 @@ public class Student extends Persoana implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return nume + ", " + prenume + ", " + grupa;
+        return nume + "," + prenume + "," + grupa;
     }
 
     public String getNume() {
@@ -67,7 +64,7 @@ public class Student extends Persoana implements Comparable<Student> {
                 if (line == null)
                     bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
 
-                   bw.write(this.toString() + "\r\n");
+                bw.write(this.toString() + "\r\n");
 
 
                 bw.flush();

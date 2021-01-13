@@ -1,11 +1,11 @@
 package laborator3;
 
-import java.awt.color.ProfileDataException;
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.List;
 
 
 public class ManagerCursuri implements OperatiiManagerCursuri {
@@ -107,7 +107,7 @@ public class ManagerCursuri implements OperatiiManagerCursuri {
     }
 
     public void ScrieCursuri() {
-        for(Curs c: cursuri)
+        for (Curs c : cursuri)
             c.ScrieCSV(CursuriFile.toString());
     }
 

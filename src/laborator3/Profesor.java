@@ -33,7 +33,7 @@ public class Profesor extends Persoana {
 
     @Override
     public String toString() {
-        return nume + ", " + prenume;
+        return nume + "," + prenume;
     }
 
     public boolean isEqual(Profesor p) {

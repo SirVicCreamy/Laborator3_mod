@@ -131,19 +131,19 @@ public class ManagerGUI extends ManagerCursuri {
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String[] nullstring={"",""};
+
 
                 try{
                     if(index[0]==0) {
 
-                        modelCursuri.addRow(nullstring);
+                        modelCursuri.addRow(new Object[]{"nume","descriere"});
                     }
                         if(index[0]==1) {
-                            modelStudenti.addRow(nullstring);
+                            modelStudenti.addRow(new Object[]{"nume","prenume","grupa"});
                         }
                     if(index[0]==2) {
 
-                        modelProfi.addRow(nullstring);
+                        modelProfi.addRow(new Object[]{"nume","prenume"});
                     }
                 }
                 catch(Exception ex) {System.out.println(ex);}
@@ -159,24 +159,19 @@ public class ManagerGUI extends ManagerCursuri {
                     if(index[0]==0) {
 
                         if(tabelCursuri.getSelectedRow()!=-1) {
-                            Curs c= new Curs(tabelCursuri.getValueAt(tabelCursuri.getSelectedRow(),0).toString(),tabelCursuri.getValueAt(tabelCursuri.getSelectedRow(),1).toString());
-                            cursuri.remove(c);
+
                             modelCursuri.removeRow(tabelCursuri.getSelectedRow());
                         }
                     }
                     if(index[0]==1) {
                         if(tabelStudenti.getSelectedRow()!=-1) {
-                            Student s= new Student(tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),0).toString(),
-                                    tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),1).toString(),
-                                    Integer.parseInt(tabelStudenti.getValueAt(tabelStudenti.getSelectedRow(),2).toString()));
-                            studenti.remove(s);
+
                             modelStudenti.removeRow(tabelStudenti.getSelectedRow());
                         }
                     }
                     if(index[0]==2) {
                         if(tabelProfi.getSelectedRow()!=-1) {
-                            Profesor p= new Profesor(tabelProfi.getValueAt(tabelProfi.getSelectedRow(),0).toString(),tabelProfi.getValueAt(tabelProfi.getSelectedRow(),1).toString());
-                            profesori.remove(p);
+
                             modelProfi.removeRow(tabelProfi.getSelectedRow());
                         }
                     }
@@ -188,7 +183,7 @@ public class ManagerGUI extends ManagerCursuri {
             }
         });
 
-        /*
+
         updateButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -196,105 +191,59 @@ public class ManagerGUI extends ManagerCursuri {
                 try {
                     if (index[0] == 0) {
 
-                        File file = new File("cursuri.csv");
-                        try {
-
-                            FileWriter fw = new FileWriter(file);
-                            FileReader fr = new FileReader(file);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            BufferedReader br = new BufferedReader(fr);
-                            String line = br.readLine();
-                            if (line == null)
-                                bw.write("nume, descriere\r\n"); //se scrie antetul
-
-                            for (int i = 0; i < tabelCursuri.getRowCount(); i++) {//rows
-                                for (int j = 0; j < tabelCursuri.getColumnCount(); j++) {//columns
-                                    bw.write(tabelCursuri.getValueAt(i, j).toString() + ",");
-
-                                }
-                                bw.newLine();
-                            }
-
-                            bw.close();
-                            br.close();
-                            fw.close();
-                            fr.close();
-
-                        } catch (IOException ex) {
-                            System.out.println(ex);
+                        PrintWriter writer = new PrintWriter("cursuri.csv");
+                        writer.print("");
+                        writer.close();
+                        cursuri.clear();
+                        for (int i = 0; i < tabelCursuri.getRowCount(); i++) {
+                            Curs c= new Curs(tabelCursuri.getValueAt(i,0).toString(),tabelCursuri.getValueAt(i,1).toString());
+                            cursuri.add(c);
                         }
+                        for(Curs c: cursuri)
+                            c.ScrieCSV("cursuri.csv");
 
                     }
 
 
                     if (index[0] == 1) {
 
-                        File file = new File("studenti.csv");
-                        try {
-
-                            FileWriter fw = new FileWriter(file);
-                            FileReader fr = new FileReader(file);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            BufferedReader br = new BufferedReader(fr);
-                            String line = br.readLine();
-                            if (line == null)
-                                bw.write("nume, prenume, grupa\r\n"); //se scrie antetul
-
-                            for (int i = 0; i < tabelStudenti.getRowCount(); i++) {//rows
-                                for (int j = 0; j < tabelStudenti.getColumnCount(); j++) {//columns
-                                    bw.write(tabelStudenti.getValueAt(i, j).toString() + ",");
-
+                        PrintWriter writer = new PrintWriter("studenti.csv");
+                        writer.print("");
+                        writer.close();
+                        studenti.clear();
+                            for (int i = 0; i < tabelStudenti.getRowCount(); i++) {
+                                Student s= new Student(tabelStudenti.getValueAt(i,0).toString(),tabelStudenti.getValueAt(i,1).toString(),Integer.parseInt(tabelStudenti.getValueAt(i,2).toString()));
+                                studenti.add(s);
                                 }
-                                bw.newLine();
-                            }
+                            for(Student s: studenti)
+                                s.ScrieCSV("studenti.csv");
 
-                            bw.close();
-                            br.close();
-                            fw.close();
-                            fr.close();
-
-                        } catch (IOException ex) {
-                            System.out.println(ex);
-                        }
                     }
                     if (index[0] == 2) {
 
+                        PrintWriter writer = new PrintWriter("profesori.csv");
+                        writer.print("");
+                        writer.close();
+                        profesori.clear();
+                        for (int i = 0; i < tabelProfi.getRowCount(); i++) {
+                            Profesor p= new Profesor(tabelProfi.getValueAt(i,0).toString(),tabelProfi.getValueAt(i,1).toString());
+                            profesori.add(p);
+                         }
+                        for(Profesor p :profesori)
+                                p.ScrieCSV("profesori.csv");
 
-                        try {
-
-                            FileWriter fw = new FileWriter(ProfesoriFile);
-                            FileReader fr = new FileReader(ProfesoriFile);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            BufferedReader br = new BufferedReader(fr);
-                            String line = br.readLine();
-                            if (line == null)
-                                bw.write("nume, prenume\r\n"); //se scrie antetul
-
-                            for(Profesor prof: profesori) System.out.println(prof);
-                                for(Profesor prof: profesori)
-
-                                   prof.ScrieCSV(ProfesoriFile.toString());
-
-
-                            bw.close();
-                            br.close();
-                            fw.close();
-                            fr.close();
-
-
-                        } catch (IOException ex) {
-                            System.out.println(ex);
-                        }
-
-                    }
                 }
-                catch(Exception ex) {System.out.println(ex);}
 
 
+
+                }
+                catch (Exception ex)
+                {System.out.println(ex);}
             }
+
         });
 
-*/
+
 
     }
 
