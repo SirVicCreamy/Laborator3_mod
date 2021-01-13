@@ -221,6 +221,7 @@ public class ManagerGUI extends ManagerCursuri {
                     }
                     if (index[0] == 2) {
 
+
                         PrintWriter writer = new PrintWriter("profesori.csv");
                         writer.print("");
                         writer.close();
